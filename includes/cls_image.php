@@ -142,7 +142,7 @@ class cls_image
      */
     function make_thumb($img, $thumb_width = 0, $thumb_height = 0, $path = '', $bgcolor='')
     {
-         $gd = $this->gd_version(); //获取 GD 版本。0 表示没有 GD 库，1 表示 GD 1.x，2 表示 GD 2.x
+         $gd = self::gd_version(); //获取 GD 版本。0 表示没有 GD 库，1 表示 GD 1.x，2 表示 GD 2.x
          if ($gd == 0)
          {
              $this->error_msg = $GLOBALS['_LANG']['missing_gd'];
@@ -312,7 +312,7 @@ class cls_image
     function add_watermark($filename, $target_file='', $watermark='', $watermark_place='', $watermark_alpha = 0.65)
     {
         // 是否安装了GD
-        $gd = $this->gd_version();
+        $gd = self::gd_version();
         if ($gd == 0)
         {
             $this->error_msg = $GLOBALS['_LANG']['missing_gd'];
@@ -675,7 +675,7 @@ class cls_image
      * @access      public
      * @return      int         可能的值为0，1，2
      */
-    function gd_version()
+    static function gd_version()
     {
         static $version = -1;
 
