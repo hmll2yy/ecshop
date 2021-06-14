@@ -562,7 +562,7 @@ class integrate
      *
      * @return void
      */
-    function set_cookie($username='', $remember= null )
+    function set_cookie($username='', $remember = null)
     {
         if (empty($username))
         {
